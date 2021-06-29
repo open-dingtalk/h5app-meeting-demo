@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * 企业 E应用审批解决方案示例代码
- * 实现了审批的基础功能
+ *
+ * 实现了创建会议的功能
  */
 @Slf4j
 @RestController
@@ -21,15 +21,13 @@ public class MeetingController {
     @Autowired
     private MeetingService meetingService;
 
-
-
     /**
-     * 发起审批
+     * 创建会议
      */
     @PostMapping("/meeting")
-    public ServiceResult startProcessInstance(@RequestBody MeetingInputVO meetingInputVO) {
+    public ServiceResult createMeeting(@RequestBody MeetingInputVO meetingInputVO) {
 
-        log.info("ProcessInstanceController#startProcessInstance params: {}", JSONObject.toJSON(meetingInputVO));
+        log.info("MeetingController#createMeeting params: {}", JSONObject.toJSON(meetingInputVO));
 
         return ServiceResult.success(meetingService.createMeeting(meetingInputVO));
     }
