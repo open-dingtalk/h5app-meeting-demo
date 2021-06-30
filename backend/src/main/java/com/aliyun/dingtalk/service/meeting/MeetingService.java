@@ -7,4 +7,5 @@ public interface MeetingService {
 
     CreateVideoConferenceResponseBody createMeeting(MeetingInputVO meetingInputVO);
 
+    String closeMeeting(String conferenceId, String unionId);
 }

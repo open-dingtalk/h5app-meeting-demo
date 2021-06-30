@@ -6,11 +6,16 @@ import com.aliyun.dingtalk.model.MeetingInputVO;
 import com.aliyun.dingtalk.service.meeting.MeetingService;
 import com.aliyun.dingtalk.util.AccessTokenUtil;
 import com.aliyun.dingtalkconference_1_0.Client;
+import com.aliyun.dingtalkconference_1_0.models.CloseVideoConferenceHeaders;
+import com.aliyun.dingtalkconference_1_0.models.CloseVideoConferenceRequest;
+import com.aliyun.dingtalkconference_1_0.models.CloseVideoConferenceResponse;
 import com.aliyun.dingtalkconference_1_0.models.CreateVideoConferenceHeaders;
 import com.aliyun.dingtalkconference_1_0.models.CreateVideoConferenceRequest;
 import com.aliyun.dingtalkconference_1_0.models.CreateVideoConferenceResponse;
 import com.aliyun.dingtalkconference_1_0.models.CreateVideoConferenceResponseBody;
+import com.aliyun.tea.TeaException;
 import com.aliyun.teaopenapi.models.Config;
+import com.aliyun.teautil.Common;
 import com.aliyun.teautil.models.RuntimeOptions;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -74,4 +79,37 @@ public class MeetingServiceImpl implements MeetingService {
         return null;
 
     }
+
+    /**
+     * 关闭会议
+     * @param conferenceId
+     * @param unionId
+     * @return
+     */
+    @Override
+    public String closeMeeting(String conferenceId, String unionId) {
+        try {
+            Client client = createClient();
+            CloseVideoConferenceHeaders closeVideoConferenceHeaders = new CloseVideoConferenceHeaders();
+            closeVideoConferenceHeaders.xAcsDingtalkAccessToken = AccessTokenUtil.getAccessToken(appConfig.getAppKey(), appConfig.getAppSecret());
+            CloseVideoConferenceRequest closeVideoConferenceRequest = new CloseVideoConferenceRequest()
+                    .setUnionId(unionId);
+            // 关闭会议
+            client.closeVideoConferenceWithOptions(conferenceId, closeVideoConferenceRequest, closeVideoConferenceHeaders, new RuntimeOptions());
+
+        } catch (TeaException err) {
+            if (!Common.empty(err.code) && !Common.empty(err.message)) {
+                // err 中含有 code 和 message 属性，可帮助开发定位问题
+            }
+
+        } catch (Exception _err) {
+            TeaException err = new TeaException(_err.getMessage(), _err);
+            if (!Common.empty(err.code) && !Common.empty(err.message)) {
+                // err 中含有 code 和 message 属性，可帮助开发定位问题
+            }
+
+        }
+        return "success";
+    }
+
 }

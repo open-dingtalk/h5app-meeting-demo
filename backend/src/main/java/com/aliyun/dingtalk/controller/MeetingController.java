@@ -7,7 +7,9 @@ import com.aliyun.dingtalk.service.meeting.MeetingService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -30,6 +32,15 @@ public class MeetingController {
         log.info("MeetingController#createMeeting params: {}", JSONObject.toJSON(meetingInputVO));
 
         return ServiceResult.success(meetingService.createMeeting(meetingInputVO));
+    }
+
+    /**
+     * 关闭会议
+     */
+    @PutMapping("/meeting")
+    public ServiceResult closeMeeting(@RequestParam String conferenceId, @RequestParam String unionId) {
+
+        return ServiceResult.success(meetingService.closeMeeting(conferenceId, unionId));
     }
 
 }

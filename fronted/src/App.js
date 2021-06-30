@@ -21,7 +21,7 @@ function App() {
             "confTitle": "会议Demo",
             "inviteUserIds": [inviteUnionId]
         };
-        // 创建审批流程
+        // 发起会议
         axios({
             url: domain + '/meeting',
             method: 'post',
@@ -31,7 +31,30 @@ function App() {
             }
         })
             .then(function (response) {
-                alert("success");
+                // alert(JSON.stringify(response));
+                console.log(response);
+                sessionStorage.setItem("conferenceId", response.data.result.conferenceId);
+
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    };
+
+    const closeMeeting = () => {
+        // 获取存储的用户部门和ID
+        const unionId = sessionStorage.getItem('unionId');
+        const conferenceId = sessionStorage.getItem('conferenceId');
+
+        // 关闭会议
+        axios({
+            url: domain + '/meeting?conferenceId=' + conferenceId + '&unionId=' + unionId,
+            method: 'put',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(function (response) {
 
             })
             .catch(function (error) {
@@ -46,6 +69,7 @@ function App() {
             {/*</header>*/}
             <header className="App-header">
             <button onClick={createMeeting}>发起会议</button>
+            <button onClick={closeMeeting}>关闭会议</button>
             </header>
             {/*<div className="container">*/}
             {/*    <List/>*/}
