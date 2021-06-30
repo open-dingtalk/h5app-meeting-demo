@@ -10,15 +10,15 @@
 
 ### 添加成员信息读取权限
 
-![image-20210629172246501](/Users/wan/Library/Application Support/typora-user-images/image-20210629172246501.png)
+![image-20210629172246501](https://img.alicdn.com/imgextra/i3/O1CN01VOEiV72A20FUbk2yC_!!6000000008144-2-tps-2856-1212.png
 
 ### 添加通讯录部门成员读权限
 
-![image-20210629172900028](/Users/wan/Library/Application Support/typora-user-images/image-20210629172900028.png)
+![image-20210629172900028](https://img.alicdn.com/imgextra/i3/O1CN017gM55e1FrMZA3vCn1_!!6000000000540-2-tps-2852-1170.png)
 
 ### 添加视频会议应用会议写权限
 
-![image-20210629173000413](/Users/wan/Library/Application Support/typora-user-images/image-20210629173000413.png)
+![image-20210629173000413](https://img.alicdn.com/imgextra/i3/O1CN01TBv3Ts1fzlqWZfv4R_!!6000000004078-2-tps-2844-1160.png)
 
 ## Getting Started
 
@@ -32,7 +32,7 @@ https://github.com/open-dingtalk/h5app-meeting-demo.git
 
 ### 修改邀请人unionId
 
-![image-20210629174119971](/Users/wan/Library/Application Support/typora-user-images/image-20210629174119971.png)
+![image-20210629174119971](https://img.alicdn.com/imgextra/i2/O1CN01eAWKjK1FsHMAFxcSo_!!6000000000542-2-tps-2552-1312.png)
 
 ### 使用命令行安装依赖&打包
 
@@ -40,27 +40,27 @@ https://github.com/open-dingtalk/h5app-meeting-demo.git
 cd fronted/
 ```
 
-![image-20210629173609070](/Users/wan/Library/Application Support/typora-user-images/image-20210629173609070.png)
+![image-20210629173609070](https://img.alicdn.com/imgextra/i3/O1CN0129OwPi1fkem44fFKT_!!6000000004045-2-tps-2492-728.png)
 
 ```txt
 npm install
 ```
 
-![image-20210629173856382](/Users/wan/Library/Application Support/typora-user-images/image-20210629173856382.png)
+![image-20210629173856382](https://img.alicdn.com/imgextra/i1/O1CN01aJ5SC31MRRSS8Boi6_!!6000000001431-2-tps-2196-938.png)
 
 ```txt
 npm run build
 ```
 
-![image-20210629174001090](/Users/wan/Library/Application Support/typora-user-images/image-20210629174001090.png)
+![image-20210629174001090](https://img.alicdn.com/imgextra/i1/O1CN01Vxi9rM1nCmPIYJrxB_!!6000000005054-2-tps-2004-1076.png)
 
 ### 将打包好的静态资源文件放入后端服务
 
-![image-20210629174440058](/Users/wan/Library/Application Support/typora-user-images/image-20210629174440058.png)
+![image-20210629174440058](https://img.alicdn.com/imgextra/i3/O1CN01NJ199X1fP89uCNv3a_!!6000000003998-2-tps-2174-1602.png)
 
 ### 替换后端应用配置
 
-![image-20210629174519462](/Users/wan/Library/Application Support/typora-user-images/image-20210629174519462.png)
+![image-20210629174519462](https://img.alicdn.com/imgextra/i1/O1CN01NY5LOc1N4N7scIvHC_!!6000000001516-2-tps-2040-856.png)
 
 
 
