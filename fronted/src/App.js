@@ -129,6 +129,13 @@ function App() {
                         // alert(JSON.stringify(response));
                         console.log(response);
                         sessionStorage.setItem("conferenceId", response.data.data.conferenceId);
+                        /**
+                         * {"conferenceId":"60deab593d77ec0150656e90",
+                         * "externalLinkUrl":"https://meeting.dingtalk.com/app?roomCode=79205423749&token=1_1ce7d649-7cf3-486a-a61b-9a4cdc6be1b5",
+                         * "phoneNumbers":["0738-8953896","0596-5013959"]}
+                         *
+                         * 用户可以使用 response externalLinkUrl 浏览器进入会议
+                         */
 
                     })
                     .catch(function (error) {
