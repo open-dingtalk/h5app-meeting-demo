@@ -1,28 +1,30 @@
 package com.aliyun.dingtalk.controller;
 
-import com.aliyun.dingtalk.config.AppConfig;
 import com.aliyun.dingtalk.model.ServiceResult;
+import com.aliyun.dingtalk.service.config.DingTalkConfigService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-public class DingTalkConfig {
+public class DingTalkConfigController {
+
 
     @Autowired
-    private AppConfig appConfig;
+    private DingTalkConfigService dingTalkConfigService;
+
 
     /**
      * 获取钉钉配置
      * @return
      */
     @GetMapping("/config")
-    public ServiceResult<Map> getDingTalkConfig() {
-        Map<String, String> configMap = new HashMap<>();
-        configMap.put("corpId", appConfig.getCorpId());
-        return ServiceResult.success(configMap);
+    public ServiceResult<Map> getDingTalkConfig(@RequestParam String url) {
+
+        return ServiceResult.getSuccessResult(dingTalkConfigService.getConfig(url));
     }
+
 }

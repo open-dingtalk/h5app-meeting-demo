@@ -38,14 +38,8 @@ public class DingTalkUserController {
     @GetMapping("/login")
     public ServiceResult login(@RequestParam(value = "authCode") String authCode) {
 
-        return ServiceResult.success(dingTalkUserService.getUserInfo(authCode));
+        return ServiceResult.getSuccessResult(dingTalkUserService.getUserInfo(authCode));
 
-    }
-
-    @GetMapping("/users")
-    public ServiceResult getUsersByDeptIds(Long[] deptIds) {
-
-        return ServiceResult.success(dingTalkUserService.getUsersByDeptIds(Arrays.asList(deptIds)));
     }
 
 

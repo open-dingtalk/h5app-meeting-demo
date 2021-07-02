@@ -31,7 +31,7 @@ public class MeetingController {
 
         log.info("MeetingController#createMeeting params: {}", JSONObject.toJSON(meetingInputVO));
 
-        return ServiceResult.success(meetingService.createMeeting(meetingInputVO));
+        return ServiceResult.getSuccessResult(meetingService.createMeeting(meetingInputVO));
     }
 
     /**
@@ -40,7 +40,7 @@ public class MeetingController {
     @PutMapping("/meeting")
     public ServiceResult closeMeeting(@RequestParam String conferenceId, @RequestParam String unionId) {
 
-        return ServiceResult.success(meetingService.closeMeeting(conferenceId, unionId));
+        return ServiceResult.getSuccessResult(meetingService.closeMeeting(conferenceId, unionId));
     }
 
 }

@@ -49,8 +49,13 @@ public class DingTalkUserServiceImpl implements DingTalkUserService {
 
     }
 
+    /**
+     * 获取部门列表的员工详情
+     * @param deptIds
+     * @return
+     */
     @Override
-    public Map<String, String> getUsersByDeptIds(List<Long> deptIds) {
+    public List<OapiV2UserListResponse.ListUserResponse> getUsersByDeptIds(List<Long> deptIds) {
 
         String accessToken = AccessTokenUtil.getAccessToken(appConfig.getAppKey(), appConfig.getAppSecret());
 
@@ -60,10 +65,16 @@ public class DingTalkUserServiceImpl implements DingTalkUserService {
             getUsersByDeptId(0L, deptId, accessToken, users)
         );
 
-        Map<String, String> userMap = users.stream().collect(Collectors.toMap(OapiV2UserListResponse.ListUserResponse::getName, OapiV2UserListResponse.ListUserResponse::getUnionid, (v1, v2) -> v2));
-        return userMap;
+        return users;
     }
 
+    /**
+     * 递归调用 根据部门获取员工详情
+     * @param cursor
+     * @param deptId
+     * @param accessToken
+     * @param users
+     */
     public void getUsersByDeptId(Long cursor, Long deptId, String accessToken, List<OapiV2UserListResponse.ListUserResponse> users) {
 
         DingTalkClient client = new DefaultDingTalkClient(UrlConstant.GET_USER_LIST_BY_DEPT_URL);
@@ -128,7 +139,7 @@ public class DingTalkUserServiceImpl implements DingTalkUserService {
      * @param accessToken
      * @return
      */
-    private OapiV2UserGetResponse.UserGetResponse getOapiV2UserGetResponseByUserId(String userId, String accessToken) {
+    public OapiV2UserGetResponse.UserGetResponse getOapiV2UserGetResponseByUserId(String userId, String accessToken) {
         DingTalkClient client = new DefaultDingTalkClient(UrlConstant.USER_GET_URL);
         OapiV2UserGetRequest req = new OapiV2UserGetRequest();
         req.setUserid(userId);

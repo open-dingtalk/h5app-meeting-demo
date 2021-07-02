@@ -15,12 +15,8 @@ public class AppConfig {
 
     private String appSecret;
 
-    private String ownerKey;
+    private Long agentId;
 
-    private String aesKey;
-
-    private String token;
-
-    private String processCode;
+    private String nonceStr;
 
 }

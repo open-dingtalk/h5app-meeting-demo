@@ -1,6 +1,7 @@
 package com.aliyun.dingtalk.util;
 
 import com.aliyun.dingtalk.constant.UrlConstant;
+import com.aliyun.dingtalk.exception.InvokeDingTalkException;
 import com.dingtalk.api.DefaultDingTalkClient;
 import com.dingtalk.api.request.OapiGettokenRequest;
 import com.dingtalk.api.response.OapiGettokenResponse;
@@ -27,8 +28,8 @@ public class AccessTokenUtil {
             String accessToken = response.getAccessToken();
             return accessToken;
         } catch (ApiException e) {
-            log.error("getAccessToken failed", e);
-            throw new RuntimeException();
+            e.printStackTrace();
+            throw new InvokeDingTalkException(e.getErrCode(), e.getErrMsg());
         }
 
     }

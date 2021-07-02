@@ -17,8 +17,13 @@ public class MeetingInputVO {
     private String confTitle;
 
     /**
-     * 邀请参会人员unionId列表 必须是会议发起人的好友或同事。
+     * 邀请参会人员userId列表 必须是会议发起人的好友或同事。
      */
     private List<String> inviteUserIds;
+
+    /**
+     * 邀请参会部门列表
+     */
+    private List<Long> deptIds;
 
 }

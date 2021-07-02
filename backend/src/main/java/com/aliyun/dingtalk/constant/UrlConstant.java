@@ -22,4 +22,8 @@ public class UrlConstant {
      */
     public static final String GET_USER_LIST_BY_DEPT_URL = "https://oapi.dingtalk.com/topapi/v2/user/list";
 
+    /**
+     * 获取jsapiticket url
+     */
+    public static final String GET_JSAPI_TICKET = "https://oapi.dingtalk.com/get_jsapi_ticket";
 }
