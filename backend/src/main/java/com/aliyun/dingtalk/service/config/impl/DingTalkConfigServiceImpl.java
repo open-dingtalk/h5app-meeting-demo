@@ -7,11 +7,9 @@ import com.aliyun.dingtalk.util.AccessTokenUtil;
 import com.aliyun.dingtalk.util.DdConfigSign;
 import com.aliyun.dingtalk.util.JsApiTicketUtil;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.time.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.sql.Date;
 import java.time.Instant;
 import java.util.HashMap;
 import java.util.Map;
@@ -19,6 +17,9 @@ import java.util.Map;
 @Service
 @Slf4j
 public class DingTalkConfigServiceImpl implements DingTalkConfigService {
+
+    // 钉钉鉴权参数 自定义固定字符串。
+    private static final String NONCE_STR = "meetingtest";
 
     @Autowired
     private AppConfig appConfig;
@@ -34,7 +35,7 @@ public class DingTalkConfigServiceImpl implements DingTalkConfigService {
 
         Long agentId = appConfig.getAgentId();
 
-        String nonceStr = appConfig.getNonceStr();
+        String nonceStr = NONCE_STR;
 
         String corpId = appConfig.getCorpId();
 

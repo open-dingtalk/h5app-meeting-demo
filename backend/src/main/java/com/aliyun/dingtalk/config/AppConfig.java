@@ -17,6 +17,4 @@ public class AppConfig {
 
     private Long agentId;
 
-    private String nonceStr;
-
 }
