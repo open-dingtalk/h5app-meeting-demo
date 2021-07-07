@@ -12,7 +12,7 @@ function App() {
     let agentId, corpId, timeStamp, nonceStr, signature;
 
     // jsapi鉴权时传入的url，和需要鉴权的页面url保持一致，如果是index页面需要鉴权，访问页面时也需要加上index.html
-    let url = "http://wanzq.vaiwan.com/index.html";
+    let url = window.location.href;
 
     axios.get(domain + "/config?url=" + encodeURIComponent(url))
         .then(response => {
