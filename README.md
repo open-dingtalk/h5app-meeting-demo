@@ -74,7 +74,7 @@ https://github.com/open-dingtalk/h5app-meeting-demo.git
 ### 使用命令行安装依赖&打包
 
 ```txt
-cd fronted/
+cd frontend/
 ```
 
 ![image-20210629173609070](https://img.alicdn.com/imgextra/i3/O1CN0129OwPi1fkem44fFKT_!!6000000004045-2-tps-2492-728.png)

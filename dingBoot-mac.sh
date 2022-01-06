@@ -25,7 +25,7 @@ extract_jar() {
     exit 1
   else
     mv backend/target/*.jar ./${APP_NAME}
-    rm -rf target/
+    rm -rf backend/target/
   fi
 
 }
@@ -46,7 +46,7 @@ start_pierced() {
 }
 
 #npm_run_build() {
-#  cd ../fronted
+#  cd ../frontend
 #  if [ ! -d "node_modules/" ];then
 #    npm install
 #    npm run build
